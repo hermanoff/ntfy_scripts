@@ -65,8 +65,7 @@ def run_docker_command(node):
 
 def check_docker_swarm_health():
     for node in manager_nodes:
-        if run_docker_command(node):
-            break
+        run_docker_command(node)
 
 
 if __name__ == "__main__":
