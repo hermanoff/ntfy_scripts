@@ -31,7 +31,7 @@ def run_docker_command(node):
             print(result.stderr)
 
         unavailable_nodes = [
-            line for line in result.stdout.splitlines() if "Reachable" in line
+            line for line in result.stdout.splitlines() if "Unavailable" in line
         ]
 
         if unavailable_nodes:
