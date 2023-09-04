@@ -30,7 +30,7 @@ for node in manager_nodes:
         unhealthy_nodes.append(node)
 
 # Check if any node is not healthy and send a report
-if not unhealthy_nodes:
+if unhealthy_nodes:
     print("Cluster has one or more unhealthy nodes. Sending a report...")
     username = os.getenv("NTFY_USERNAME")
     password = os.getenv("NTFY_PASSWORD")
