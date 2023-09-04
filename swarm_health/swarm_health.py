@@ -8,14 +8,14 @@ load_dotenv()
 
 # List of manager nodes to try
 manager_nodes = ["manager1", "manager2", "manager3"]
-
+ssh_key_path = /home/devops/.ssh/tria_unified
 
 def run_docker_command(node):
     try:
         # Use the Docker CLI to check the Swarm health on the specified node
         result = subprocess.run(
-            ["docker", "-H",
-                f"ssh://{node}:22/var/run/docker.sock", "node", "ls"],
+            ["docker", "-H", f"ssh://{node}:22/var/run/docker.sock",
+                "--ssh", f"-i {ssh_key_path}", "node", "ls"],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True
